@@ -1,0 +1,76 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.App-header {
+  height: 60px;
+  background-color: #bcd2dc; /* ヘッダーの色 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.main-container {
+  display: flex; /* これでサイドバーとメインが横に並びます */
+  flex: 1;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #f0f0f0;
+  border-right: 1px solid #ccc;
+  padding: 20px;
+}
+
+.content {
+  flex: 1;
+  padding: 40px;
+  background-color: white;
+  position: relative;
+}
+
+.add-button {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  background-color: #bcd2dc;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 背景を暗くする */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-form label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.button-group {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
