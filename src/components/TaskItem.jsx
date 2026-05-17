@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TaskItem({ task, onToggle, onStatusChange }) {
+function TaskItem({ task, onToggle, onStatusChange, onDelete }) {
   let badgeColor = "#eee";
   if (task.status === "進行中") badgeColor = "#FFF9C4";
   if (task.status === "未着手") badgeColor = "#FFCDD2";
@@ -27,6 +27,12 @@ function TaskItem({ task, onToggle, onStatusChange }) {
         <option value="進行中">進行中</option>
         <option value="完了">完了</option>
       </select>
+      <button
+        onClick={() => onDelete(task.id)}
+        style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '16px', color: '#ccc' }}
+      >
+        🗑️
+      </button>
     </div>
   );
 }
