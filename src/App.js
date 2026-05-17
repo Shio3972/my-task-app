@@ -21,7 +21,6 @@ function App() {
     localStorage.setItem('hitome-tasks', JSON.stringify(tasks));
   }, [tasks]);
 
-
   const toggleComplete = (id) => {
     setTasks(tasks.map(task => 
       task.id === id ? { ...task, status: task.status === '完了' ? '進行中' : '完了' } : task
@@ -83,7 +82,7 @@ function App() {
       <div className="main-container">
         <aside className="sidebar" style={{ backgroundColor: '#f9f9f9', padding: '20px', borderRight: '1px solid #eee' }}>
           <ul style={{ listStyle: 'none', padding: 0 }}>
-            
+
             <li 
               onClick={() => setSelectedTab('自分のタスク')}
               style={{ 
@@ -160,9 +159,19 @@ function App() {
                   <span style={{ width: '100px', fontSize: '14px', color: '#666' }}>
                     {task.date}
                   </span>
-                  <span className="status-badge" style={{ backgroundColor: badgeColor, padding: '5px 15px', borderRadius: '20px', fontSize: '12px', fontWeight: 'bold' }}>
-                    {task.status}
-                  </span>
+                  <select
+                    value={task.status}
+                    onChange={(e) => {
+                      setTasks(tasks.map(t => 
+                        t.id === task.id ? { ...t, status: e.target.value } : t
+                      ));
+                    }}
+                    style={{ backgroundColor: badgeColor, padding: '5px 15px', borderRadius: '20px', fontSize: '12px', fontWeight: 'bold', border: 'none', cursor: 'pointer' }}
+                  >
+                    <option value="未着手">未着手</option>
+                    <option value="進行中">進行中</option>
+                    <option value="完了">完了</option>
+                  </select>
                 </div>
               );
             })}
