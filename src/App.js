@@ -36,6 +36,10 @@ function App() {
     ));
   };
 
+  const deleteTask = (id) => {
+    setTasks(tasks.filter(task => task.id !== id));
+  };
+
   const addTask = () => {
     if (newTitle === "") return;
 
@@ -83,6 +87,7 @@ function App() {
                 task={task}
                 onToggle={toggleComplete}
                 onStatusChange={handleStatusChange}
+                onDelete={deleteTask}
               />
             ))}
           </div>
